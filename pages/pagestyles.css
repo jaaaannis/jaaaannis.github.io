@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 .title {
     text-align: center;
     font-weight: bold;
@@ -6,6 +9,27 @@
     background-color: #d6b589;
     width: fit-content;
 }
+
+*{
+    font-family: 'Dela Gothic One', cursive;
+}
+
+p {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.8rem !important;
+}
+
+li {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.8rem !important;
+}
+
+a {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 1.8rem !important;
+    margin-bottom: 1rem;
+}
+
 .bg-bambus {
     background-image: url("https://cdn.pixabay.com/photo/2016/11/26/12/00/kyoto-1860521_1280.jpg");
     background-size: cover;
@@ -43,4 +67,8 @@
 .contra {
     background-color: crimson;
     color: white;
+}
+
+h4 {
+    font-size: 3rem !important;
 }
