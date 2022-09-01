@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Dela+Gothic+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
 
 *{
     font-family: 'Dela Gothic One', cursive;
@@ -53,4 +55,44 @@
 }
 .scroll{
   height:100%;
+}
+
+.subtitle {
+  font-size: 2.5vw;
+}
+
+p {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+.bg-bambus {
+  background-image: url("https://cdn.pixabay.com/photo/2016/11/26/12/00/kyoto-1860521_1280.jpg");
+  background-size: cover;
+  height: 144px;
+  width: 100%;
+}
+.bg-glass {
+  background-image: url("https://cdn.pixabay.com/photo/2014/08/26/15/28/jam-428094_1280.jpg");
+  background-size: cover;
+  height: 144px;
+  width: 100%;
+}
+.bg-maisstärke {
+  background-image: url("https://cdn.pixabay.com/photo/2020/05/21/06/58/corn-5199393_1280.jpg");
+  background-size: cover;
+  height: 144px;
+  width: 100%;
+}
+.bg-seetang {
+  background-image: url("https://cdn.pixabay.com/photo/2019/11/20/23/58/water-4641424_1280.jpg");
+  background-size: cover;
+  height: 144px;
+  width: 100%;
+  background-position: 0, 500px;
+}
+.bg-zuckerrohr {
+  background-image: url("https://cdn.pixabay.com/photo/2020/08/28/16/31/sugarcane-5525004_1280.jpg");
+  background-size: cover;
+  height: 144px;
+  width: 100%;
 }

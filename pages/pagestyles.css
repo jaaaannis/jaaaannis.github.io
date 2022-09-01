@@ -1,0 +1,46 @@
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: min(10vw,80px);
+    color: black;
+    background-color: #d6b589;
+    width: fit-content;
+}
+.bg-bambus {
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/26/12/00/kyoto-1860521_1280.jpg");
+    background-size: cover;
+}
+.bg-glass {
+    background-image: url("https://cdn.pixabay.com/photo/2014/08/26/15/28/jam-428094_1280.jpg");
+    background-size: cover;
+}
+.bg-maisstärke {
+    background-image: url("https://cdn.pixabay.com/photo/2020/05/21/06/58/corn-5199393_1280.jpg");
+    background-size: cover;
+}
+.bg-seetang {
+    background-image: url("https://cdn.pixabay.com/photo/2019/11/20/23/58/water-4641424_1280.jpg");
+    background-size: cover;
+}
+.bg-zuckerrohr {
+    background-image: url("https://cdn.pixabay.com/photo/2020/08/28/16/31/sugarcane-5525004_1280.jpg");
+    background-size: cover;
+}
+
+.bg{
+    background-image: url("../BG.svg");
+}
+  
+.content {
+    background-color: #d6b589;
+}
+
+.pro{
+    background-color: darkolivegreen;
+    color: white;
+}
+
+.contra {
+    background-color: crimson;
+    color: white;
+}
