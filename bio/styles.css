@@ -56,3 +56,13 @@ hr {
     width: 80%; /* Could be more or less, depending on screen size */
     max-width: 400px;
 }
+
+@media (max-width: 600px) {
+    .middle {
+        width: 95%;
+    }
+
+    h1 {
+        font-size: min(5vw,30px) ;
+    }
+}
