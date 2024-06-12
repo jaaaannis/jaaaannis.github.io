@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Math&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.center {
+    margin-top: 5rem;
+    width: 100%;
+    text-align: center;
+}
+
+#input {
+    margin-top: 2rem;
+    font-size: 2rem;
+}
+
+#formula {
+    font-family: "Noto Sans Math", sans-serif;
+}
+
+h3 {
+    margin-top: 2rem;
+}

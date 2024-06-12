@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Chemistry</title>
+</head>
+<body>
+    <script src="script.js"></script>
+    <div class="center">
+        <h1 id="formula">Deine Formel</h1>
+        <input type="text" id="input">
+        <button onclick="copy()">copy</button>
+        <div>
+            <h3>Regeln:</h3>
+            <ul>
+                <li>+ wird hochgestellt, es sei denn ein Leerzeichen ist davor</li>
+                <li>- wird hochgestellt</li>
+                <li>Zahlen werden tiefgestellt. Ist ein Leerzeichen davor: normale Zahl. Ist ein +/- dahinter: Hochgestellt</li>
+                <li>-> wird zu →</li>
+                <li><-> wird zu ⇌</li>
+                <li>1/2 wird zu ½</li>
+                <li>Buchstaben bleiben unverändert</li>
+                <li></li>
+                <li>"H2O + HCl <-> Cl- + H3O+" würde also zu "H₂O + HCl ⇌ Cl⁻ + H₃O⁺" werden</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
