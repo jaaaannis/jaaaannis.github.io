@@ -5,6 +5,7 @@ const rules = `
     <li>-> wird zu →</li>
     <li><-> wird zu ⇌</li>
     <li>1/2 wird zu ½</li>
+    <li>... wird zu ┆ (für Zelldiagramme)</li>
     <li>Buchstaben bleiben unverändert</li>
     <li></li>
     <li>"H2O + HCl <-> Cl- + H3O+" würde also zu "H₂O + HCl ⇌ Cl⁻ + H₃O⁺" werden</li>
@@ -139,6 +140,7 @@ function on_text_change(input) {
             .replaceAll("+","⁺")
             .replaceAll(" ⁺"," +")
             .replaceAll("-","⁻")
+            .replaceAll("...","┆")
             .replaceAll(/(?!^)(?<!\s)[0-9]/g, match => toSubScript(match))
     }else {
         output = input
