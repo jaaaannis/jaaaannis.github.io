@@ -11,23 +11,20 @@
     <div class="center">
         <h1 id="formula">Deine Formel</h1>
         <input type="text" id="input">
-        <button onclick="copy()">copy</button>
+        <button onclick="copy()" class="button">copy</button>
         <br>
         <input type="checkbox" name="manual-mode" id="manual-mode">
         <span>Manueller Modus</span>
         <div>
             <h3>Regeln:</h3>
             <ul id="rules">
-                <li>+ wird hochgestellt, es sei denn ein Leerzeichen ist davor</li>
-                <li>- wird hochgestellt</li>
-                <li>Zahlen werden tiefgestellt. Ist ein Leerzeichen davor: normale Zahl. Ist ein +/- dahinter: Hochgestellt</li>
-                <li>-> wird zu →</li>
-                <li><-> wird zu ⇌</li>
-                <li>1/2 wird zu ½</li>
-                <li>... wird zu ┆ (für Zelldiagramme)</li>
-                <li>Buchstaben bleiben unverändert</li>
-                <li></li>
-                <li>"H2O + HCl <-> Cl- + H3O+" würde also zu "H₂O + HCl ⇌ Cl⁻ + H₃O⁺" werden</li>
+                <!-- Added in code -->
+            </ul>
+        </div>
+        <div>
+            <h3>History:</h3>
+            <ul id="history">
+                <!-- Generated in code -->
             </ul>
         </div>
     </div>

@@ -106,7 +106,13 @@ function toSubScript(x) {
 }
 
 
-let manuelMode = false;
+let manualMode = false;
+
+window.addEventListener('keypress', evt => {
+    if(evt.target.id == "input" && evt.key == "Enter") {
+        copy()
+    }
+})
 
 window.addEventListener('input', function (evt) {
 
@@ -115,14 +121,71 @@ window.addEventListener('input', function (evt) {
     }
 
     if(evt.target.id == "manual-mode") {
-        console.log(evt)
         set_manual(evt.target.checked)
     }
 
 });
 
+function get_history() {
+    let history = JSON.parse(localStorage.getItem("history"))
+
+    let history_list = []
+
+    history.forEach((entry,i) => {
+        history_list.push(`<li>${entry.formula} <button style="margin-left: 1rem" class="button" onclick="load_history_entry(${i})">import</button>  <button style="margin-left: 1rem" class="button" onclick="remove_history_entry(${i})">🗑️</button> </li>`)
+    });
+
+    let history_html = history_list.reverse().join("\n")
+
+    this.document.getElementById("history").innerHTML = history_html;
+}
+
+function load_history_entry(entry_id) {
+    let history_entry = JSON.parse(localStorage.getItem("history"))[entry_id]
+    this.document.getElementById("input").value = history_entry.raw
+    set_manual(history_entry.manual)
+    on_text_change(history_entry.raw)
+    add_to_history()
+}
+
+function add_to_history() {
+    let raw_text = this.document.getElementById("input").value
+
+    if(raw_text == "") return;
+    
+    let history = JSON.parse(localStorage.getItem("history"))
+
+    if (!history) {
+        history = []
+    }
+
+    let already_contained_index = history.findIndex(entry => entry.raw == raw_text && entry.manual == manualMode)
+
+    if(already_contained_index >= 0) {
+        history.splice(already_contained_index,1)
+    }
+
+    history.push({
+        formula: this.document.getElementById("formula").innerText,
+        raw: raw_text,
+        manual: manualMode
+    })
+
+    localStorage.setItem("history", JSON.stringify(history))
+    get_history()
+}
+
+function remove_history_entry(entry_id) {
+    let history = JSON.parse(localStorage.getItem("history"))
+    history.splice(entry_id,1)
+    localStorage.setItem("history", JSON.stringify(history))
+    get_history()
+}
+
 function set_manual(manual) {
-    manuelMode = manual;
+    manualMode = manual;
+
+    this.document.getElementById("manual-mode").checked = manual;
 
     this.document.getElementById("rules").innerHTML = manual? rulesManuel: rules;
 
@@ -131,7 +194,7 @@ function set_manual(manual) {
 
 function on_text_change(input) {
     let output = ""
-    if(!manuelMode) {
+    if(!manualMode) {
         output = input
             .replaceAll("1/2","½")
             .replaceAll(/[0-9][+-]/g, match => toSuperScript(match))
@@ -145,7 +208,7 @@ function on_text_change(input) {
     }else {
         output = input
             .replaceAll(/_./g, match => toSubScript(match.replace("_","")))
-            .replaceAll(/\^./g, match => toSubScript(match.replace("^","")))
+            .replaceAll(/\^./g, match => toSuperScript(match.replace("^","")))
     }
     
 
@@ -158,4 +221,11 @@ function on_text_change(input) {
 
 function copy() {
     navigator.clipboard.writeText(this.document.getElementById("formula").innerText)
+    add_to_history()
 }
+
+window.onload = () => {
+    set_manual(false)
+    get_history()
+}
+
