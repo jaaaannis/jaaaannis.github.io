@@ -3,7 +3,7 @@ const rules = `
     <li>- wird hochgestellt</li>
     <li>Zahlen werden tiefgestellt. Ist ein Leerzeichen davor: normale Zahl. Ist ein +/- dahinter: Hochgestellt</li>
     <li>-> wird zu →</li>
-    <li><-> wird zu ⇌</li>
+    <li>= / <-> wird zu ⇌</li>
     <li>1/2 wird zu ½</li>
     <li>... wird zu ┆ (für Zelldiagramme)</li>
     <li>Buchstaben bleiben unverändert</li>
@@ -199,6 +199,7 @@ function on_text_change(input) {
             .replaceAll("1/2","½")
             .replaceAll(/[0-9][+-]/g, match => toSuperScript(match))
             .replaceAll("<->","⇌")
+            .replaceAll("=","⇌")
             .replaceAll("->","→")
             .replaceAll("+","⁺")
             .replaceAll(" ⁺"," +")
