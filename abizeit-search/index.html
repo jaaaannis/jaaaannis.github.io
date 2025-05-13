@@ -351,8 +351,14 @@
             if(word < 10) {
                 image = images['pair_0' + word];
             }
-            document.getElementById('date1').textContent = image.date0
-            document.getElementById('date2').textContent = image.date1
+
+            const options = { weekday: 'long', year: 'numeric', month: 'numeric', day: 'numeric' };
+
+            const d1 = new Date(image.date0)
+            const d2 = new Date(image.date1)
+
+            document.getElementById('date1').textContent = d1.toLocaleDateString("de-de", options)
+            document.getElementById('date2').textContent = d2.toLocaleDateString("de-de", options)
 
             document.getElementById('img1').src = './images/' + image.img0
             document.getElementById('img2').src = './images/' + image.img1
