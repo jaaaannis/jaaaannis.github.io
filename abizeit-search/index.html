@@ -36,6 +36,15 @@
             color: #555;
             margin-top: 0.5rem;
         }
+        .date-navigation {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+        button {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -44,9 +53,13 @@
             <label for="pair-search">Pair Number:</label>
             <input type="number" id="pair-search" min="1" placeholder="Enter pair number">
         </div>
-        <div>
-            <label for="date-search">Date:</label>
-            <input type="date" id="date-search">
+        <div class="date-navigation">
+            <button id="prev-day">&lt; Previous Day</button>
+            <div>
+                <label for="date-search">Date:</label>
+                <input type="date" id="date-search">
+            </div>
+            <button id="next-day">Next Day &gt;</button>
         </div>
     </div>
     
@@ -384,14 +397,19 @@
             })
         );
 
+
         // Get DOM elements
         const pairSearch = document.getElementById('pair-search');
         const dateSearch = document.getElementById('date-search');
         const imageContainer = document.getElementById('image-container');
+        const nextDayBtn = document.getElementById('next-day');
+        const prevDayBtn = document.getElementById('prev-day');
 
         // Set up event listeners
         pairSearch.addEventListener('input', () => searchByPair(pairSearch.value));
         dateSearch.addEventListener('change', () => searchByDate(dateSearch.value));
+        nextDayBtn.addEventListener('click', goToNextDay);
+        prevDayBtn.addEventListener('click', goToPrevDay);
 
         // Format date for display
         function formatDate(date) {
@@ -453,6 +471,66 @@
             });
             
             displayImages(matchingEntries);
+        }
+
+        // Go to next day
+        function goToNextDay() {
+            if (!dateSearch.value) {
+                // If no date is selected, start from the first available date
+                const firstDate = findFirstDate();
+                if (firstDate) {
+                    dateSearch.valueAsDate = firstDate;
+                }
+                return;
+            }
+            
+            const currentDate = new Date(dateSearch.value);
+            currentDate.setDate(currentDate.getDate() + 1);
+            dateSearch.valueAsDate = currentDate;
+            searchByDate(dateSearch.value);
+        }
+
+        // Go to previous day
+        function goToPrevDay() {
+            if (!dateSearch.value) {
+                // If no date is selected, start from the last available date
+                const lastDate = findLastDate();
+                if (lastDate) {
+                    dateSearch.valueAsDate = lastDate;
+                }
+                return;
+            }
+            
+            const currentDate = new Date(dateSearch.value);
+            currentDate.setDate(currentDate.getDate() - 1);
+            dateSearch.valueAsDate = currentDate;
+            searchByDate(dateSearch.value);
+        }
+
+        // Helper function to find the first available date in the dataset
+        function findFirstDate() {
+            let firstDate = null;
+            Object.values(images).forEach(entry => {
+                entry.dates.forEach(date => {
+                    if (!firstDate || date < firstDate) {
+                        firstDate = new Date(date);
+                    }
+                });
+            });
+            return firstDate;
+        }
+
+        // Helper function to find the last available date in the dataset
+        function findLastDate() {
+            let lastDate = null;
+            Object.values(images).forEach(entry => {
+                entry.dates.forEach(date => {
+                    if (!lastDate || date > lastDate) {
+                        lastDate = new Date(date);
+                    }
+                });
+            });
+            return lastDate;
         }
     </script>
 </body>
