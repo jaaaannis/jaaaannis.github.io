@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jannis' Seite</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Relief:wght@400;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Comic Sans MS", "Comic Sans", "Comic Relief", cursive;
+    }
+
+    section {
+      height: 100vh; /* volle Bildschirmhöhe */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      padding: 40px;
+    }
+
+    .content {
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      align-items: center;
+      text-align: left;
+      max-width: 900px;
+      width: 100%;
+    }
+
+    .content img {
+      width: 30%;
+      height: auto;
+      background: #ddd;
+      display: block;
+    }
+
+    .text {
+      flex: 1;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    .rainbow {
+      background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: bold;
+    }
+
+    ul {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    ol {
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    /* Mobile Ansicht */
+    @media (max-width: 768px) {
+      .content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+
+      ul {
+        text-align: left;
+      }
+
+      ol {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen 1 -->
+  <section>
+    <div class="content">
+      <img src="./1.png" alt="Platzhalter">
+      <div class="text">
+        <h1>Hallo, ich bin <span class="rainbow">Jannis</span></h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 2 -->
+  <section>
+    <div class="content">
+      <div class="text">
+        <h1>Wollen wir Freunde sein?</h1>
+      </div>
+      <img src="./2.JPG" alt="Platzhalter">
+    </div>
+  </section>
+
+  <!-- Screen 3 -->
+  <section>
+    <div class="content">
+      <img src="./3.png" alt="Platzhalter">
+      <div class="text">
+        <h2>Ich mache viele lustige Sachen:</h2>
+        <p>Zum Beispiel:</p>
+        <ul>
+          <li>Dumme Sachen Programmieren (unter anderem das was du dir gerade anguckst)</li>
+          <li>Feuerwehrmann sein! <img style="display: inline; height: 30px; width: 30px" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Animated_fire_by_nevit.gif" alt="🔥" align="absmiddle"></li>
+          <li>Achterbahn fahren 🎢</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 4 -->
+  <section>
+    <div class="content">
+      <div class="text">
+        <h2>Sachen die ich gerne mag 👍</h2>
+        <ol>
+          <li>Lustige Socken</li>
+          <li>Dart Spielen 🎯</li>
+          <li>Katzen 🐈</li>
+          <li>Sprudelwasser 🫧</li>
+          <li>Die Farbe <span style="color: purple; font-weight: bold;">Lila</span></li>
+        </ol>
+      </div>
+      <img src="./4.png" alt="Platzhalter">
+    </div>
+  </section>
+
+  <!-- Screen 5 -->
+  <section>
+    <div class="content">
+      <img src="./5.png" alt="Platzhalter">
+      <div class="text">
+        <h2>Sachen die ich nicht so gerne mag 👎</h2>
+        <ul>
+          <li>Wespen</li>
+          <li>Demokratiefeindlichkeit</li>
+          <li>Smalltalk (Deshalb existiert diese Website)</li>
+          <li>Bananen 🍌🤮</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Screen 6 -->
+  <section>
+    <div class="content">
+        <div class="text">
+            <h2>Danke für deine Aufmerksamkeit</h2>
+            <p>Ich hoffe ich konnte dich etwas belustigen!</p>
+        </div>
+        <img src="./6.png" alt="Platzhalter">
+    </div>
+  </section>
+
+</body>
+</html>
